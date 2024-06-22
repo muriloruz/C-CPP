@@ -1,0 +1,25 @@
+#include <iostream>
+#include <locale.h>
+using namespace std;
+void soma(n1);
+void elev(n1);
+void rzqd(n1);
+void sub(n1);
+void mult(n1);
+void div(n1);
+int main(){
+    setlocale(LC_ALL,");
+    int n1;
+    char dec[4];
+    cout<<"Digite o primeiro número: "<<endl;
+    cout<<"--> ";
+    cin>>n1;
+    cout<<"kct";
+    cin>>dec;
+    switch(dec){
+        case '+':
+            soma(n1);
+            break;
+
+    }
+}

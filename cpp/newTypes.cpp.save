@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+int main(){
+    short int inteiroPequeno;
+    long int inteiroGrande;
+    long inteiroGrandeTambem;
+    unsigned int inteiroNegativo;
+    signed int inteiroPositivo;
+    unsigned short int inteiroPequenoNegativo;
+    signed short int inteiroPequenoPositivo;
+    long double realGrande;
+    long 
+}

@@ -1,0 +1,30 @@
+/*
+    Name: recursividadeSwitch.c
+    Author: Murilo
+    Date: 23/10/23 18:30
+*/
+#include <stdio.h>
+#include <stdlib.h>
+
+int switchzada(int);
+main(){
+    switchzada(1);
+}
+int switchzada(int n){
+    if(n==2){
+        
+    }
+    int op;
+    scanf("%d",&op);
+    switch(op){
+    case 1:
+        puts("Foda pae");
+        
+        break;
+    case 2:
+        puts("Lucao do esmaga");
+    default:
+        switchzada(1);
+
+    }
+}

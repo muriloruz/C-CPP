@@ -1,0 +1,136 @@
+/*
+	Name:
+	Copyright:
+	Author: Lucas Ruiz
+	Date: 18/10/23 08:16
+	Description:
+*/
+
+#include <conio.h>
+#include <stdio.h>
+#include <malloc.h>
+#include <stdbool.h>
+
+// Declaração da estrutura para pessoa
+typedef struct Pessoa
+{
+	char nome;
+	int idade;
+	float altura;
+	bool eBarbudo;
+	struct Pessoa *proximo;
+};
+
+// Sessão de Prototipação
+struct Pessoa *criarlista(char,int,float);
+struct Pessoa *adicionarLista(char, int,float);
+void exibirlista();
+int listaVazia();
+struct Pessoa buscarPessoa(char,struct Pessoa **);
+
+
+//Variáveis globais
+struct Pessoa *cabeca = NULL;
+struct Pessoa *corrente = NULL;
+
+
+// Função para criar a lista na memória
+struct Pessoa *criarlista(char name, int idade,float altura)
+{
+	struct Pessoa *p = (struct Pessoa *) malloc(sizeof(struct Pessoa));
+	if(p == NULL)
+	{
+		puts("Falha ao alocar memoria!!");
+		return NULL;
+	}
+
+	p->nome = name;
+	p->idade = idade;
+	p->altura = altura;
+	p->proximo = NULL;
+
+	cabeca = corrente = p;
+
+	return p;
+}
+
+//Função que adiciona um elemento (Nó) á lista
+//Esse elemento será adicionado SEMPRE ao final dela.
+struct Pessoa *adicionarLista(char name, int idade,float altura)
+{
+	if(cabeca == NULL)
+		return criarlista(name,idade,altura);
+
+	struct Pessoa *p =(struct Pessoa *) malloc(sizeof(struct Pessoa));
+	p->nome = name;
+	p->idade = idade;
+	p->altura = altura;
+	p->proximo = NULL;
+
+	corrente->proximo = p;
+	corrente = p;
+
+	return p;
+}
+
+//Função que exibe a lista
+void exibirlista()
+{
+	struct Pessoa *aux = cabeca;
+	while(aux != NULL)
+	{
+		printf("Nome: %c|Idade:%d\n| Altura:%.2f\n", aux->nome, aux->idade, aux->altura);
+		aux = aux->proximo;
+	}
+}
+//Função para testar se a lista etá vazia
+int listaVazia()
+{
+	//Se o elemento (nó) cabeça for NULL,a lista está vazia
+	if(cabeca == NULL)
+		return 1;
+    return 0;
+
+	//cabeca==NULL?1:0; //se?entao:senao
+}
+
+//Função para buscar um elemento na lista
+struct Pessoa buscarPessoa(char name,struct Pessoa **Anterior)
+{
+	//Testar se a lista está vazia
+	if(listaVazia() == 1)
+		return NULL;
+
+	struct Pessoa *p = cabeca;
+	struct Pessoa *auxAnterior == NULL;
+	int achou = 0;
+
+	//laço para percorrer a lista
+	while(p != NULL)
+	{
+		if(p->nome == name)
+		{
+			achou = 1;
+			break;
+		}
+		auxAnterior = p;
+		p = p->proximo;
+	}
+	if(achou == 1)
+	{
+		return p;
+	}
+	return NULL;
+}
+
+main()
+{
+
+	adicionarLista('L',20,1.9,true);
+	adicionarLista('U',20,1.9);
+	adicionarLista('C',20,1.9);
+	adicionarLista('A',20,1.9);
+	adicionarLista('S',20,1.9);
+	exibirlista();
+
+}// fim do programa

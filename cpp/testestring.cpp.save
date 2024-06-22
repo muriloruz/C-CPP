@@ -1,0 +1,14 @@
+#include <iostream>
+#include <locale.h>
+using namespace std;
+int main(){
+    string plv[] ={"ASDFGFGDAAADFSGFREGFSADF"};
+    int tamanho = sizeof(plv[])/sizeof;
+    int cont;
+    for(int i=0;i<tamanho;i++){
+        for(int j;j<tamanho;j++){
+            if(plv[j]=="A" or plv[j]=="a") cont++;
+        }
+    }
+    cout<<"Tem um total de "<<cont<<" 'A's";
+}

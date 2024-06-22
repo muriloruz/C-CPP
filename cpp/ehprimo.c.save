@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+void verificarPrimo();
+main(){
+    setlocale(LC_ALL,"Portuguese");
+    verificarPrimo();
+}
+void verificarPrimo(){
+   int aux=0,num=500,div=0;
+   for(aux=1 ; aux<=num ; aux++)
+        if(num%aux==0)
+            printf("O núemero %d primo",a);
+}

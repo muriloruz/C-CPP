@@ -1,0 +1,202 @@
+/*
+    Nome: Calc.cpp
+    Author: Murilo
+    Date: 23/10/2023 20:27
+    Version: B01:26/10/2023 17:48 -> Terminei as 5 primeiras funções e a função fatorar. Agora falta terminar a função raiz
+    elevar e a função fatorar.
+    Description: Uma calaculadora
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <string.h>
+#include <locale.h>
+#include <math.h>
+
+double somar(double,double);
+double subtrair(double,double);
+double multiplicar(double,double);
+double dividir(double,double);
+double elevar(double,double);
+double fatorar(double);
+void contagem(int);
+void escrever(char[]);
+void voltar(char[]);
+
+main(){
+    setlocale(LC_ALL,"Portuguese");
+    int op,fat;
+    double num1,num2;
+    op=fat=num1=num2=0;
+    escrever("mn");
+    puts("");
+    puts("\t\t\t\t\t[1] -> Aperte para \"Soma\".");
+    puts("\t\t\t\t\t[2] -> Aperte para \"Subtração\".");
+    puts("\t\t\t\t\t[3] -> Aperte para \"Multiplicação\".");
+    puts("\t\t\t\t\t[4] -> Aperte para \"Divisão\".");
+    puts("\t\t\t\t\t[5] -> Aperte para \"Exponenciação\".");
+    puts("\t\t\t\t\t[6] -> Aperte para \"Raiz quadrada\".");
+    puts("\t\t\t\t\t[7] -> Aperte para \"Fatorial de um número\".");
+    puts("");
+    escrever("fm");
+    /*HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    // Obtém as dimensões do console
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    GetConsoleScreenBufferInfo(hConsole, &csbi);
+    int consoleWidth = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+    int consoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+
+    // Calcula as coordenadas para o meio da tela
+    int centerX = consoleWidth / 2;
+    int centerY = consoleHeight / 2;
+
+    // Define a posição do cursor
+    COORD cursorPos;
+    cursorPos.X = centerX;
+    cursorPos.Y = centerY;
+    SetConsoleCursorPosition(hConsole, cursorPos);*/
+    puts("\n");
+    puts("\t\t\t\t\t\tOpção desejada: ");
+    printf("\t\t\t\t\t\t  ---> ");
+    scanf("%d",&op);
+    puts("\n");
+
+    switch(op){
+    case 1:
+        voltar("Soma");
+        escrever("sp");
+        printf("Qual o primeiro número?\n _ + _ = _\n---> ");
+        scanf("%lf",&num1);
+        printf("Qual o segundo número?\n %.2lf + _ = _\n---> ",num1);
+        scanf("%lf",&num2);
+        printf("O resultado é: %.2lf + %.2lf = %.2lf\n",num1,num2,somar(num1,num2));
+        escrever("fms");
+        break;
+    case 2:
+        voltar("Subtração");
+        escrever("sp");
+        printf("Qual o primeiro número?\n _ - _ = _\n---> ");
+        scanf("%lf",&num1);
+        printf("Qual o segundo número?\n %.2lf - _ = _\n---> ",num1);
+        scanf("%lf",&num2);
+        printf("O resultado é: %.2lf - %.2lf = %.2lf\n",num1,num2,subtrair(num1,num2));
+        escrever("fms");
+        break;
+    case 3:
+        voltar("Multiplicação");
+        escrever("sp");
+        printf("Qual o primeiro número?\n _ X _ = _\n---> ");
+        scanf("%lf",&num1);
+        printf("Qual o segundo número?\n %.2lf X _ = _\n---> ",num1);
+        scanf("%lf",&num2);
+        printf("O resultado é: %.2lf X %.2lf = %.2lf\n",num1,num2,multiplicar(num1,num2));
+        escrever("fms");
+        break;
+    case 4:
+        voltar("Divisão");
+        escrever("sp");
+        printf("Qual o primeiro número?\n _ / _ = _\n---> ");
+        scanf("%lf",&num1);
+        printf("Qual o segundo número?\n %.2lf / _ = _\n---> ",num1);
+        scanf("%lf",&num2);
+        printf("O resultado é: %.2lf / %.2lf = %.2lf\n",num1,num2,dividir(num1,num2));
+        escrever("fms");
+        break;
+    case 5:
+        voltar("Exponenciação");
+        escrever("sp");
+        printf("Qual é a base?\n _ ^ _ = _\n---> ");
+        scanf("%lf",&num1);
+        printf("Qual é o expoente?\n %.2lf ^ _ = _\n---> ",num1);
+        scanf("%lf",&num2);
+        printf("O resultado é: %.2lf ^ %.2lf = %.2lf\n",num1,num2,elevar(num1,num2));
+        escrever("fms");
+        break;
+    case 7:
+        voltar("Fatoração");
+        escrever("sp");
+        puts("A partir de qual número deverá ser feito o fatorial\n_! = _");
+        scanf("%lf", &num1);
+        printf("O resultado é: ");
+        printf("%.2lf\n",fatorar(num1));
+        escrever("fms");
+        break;
+    default:
+        contagem(5);
+        main();
+    }
+}
+void escrever(char operacao[]){
+    if(operacao == "mn"){
+        puts("\t|=====================================CALCULADORA=====================================|");
+        puts("\t\t|=================================Menu=================================|");
+    }
+    else if(operacao == "fms"){
+        puts("|=====================================================================================|");
+    }else if(operacao == "sp"){
+        puts("|=====================================CALCULADORA=====================================|");
+    }else if(operacao == "fm"){
+        puts("\t|=====================================================================================|");
+    }
+}
+void voltar(char texto[]){
+    int volt=0;
+    system("cls");
+    escrever("sp");
+    printf("Você escolheu \"%s\".\n",texto);
+    puts("Deseja voltar ao menu?\n[1]->SIM\n[2]->NÃO");
+    scanf("%d",&volt);
+    if(volt==1){
+        system("cls");
+        main();
+    }else if(volt==2){
+        system("cls");
+    }else{
+        contagem(5);
+        main();
+    }
+}
+void contagem(int sec){
+    while (sec >= 0) {
+        system("cls");
+        puts("Opção inválida!");
+        printf("Em %d segundos você irá retornar ao menu\n", sec);
+        sleep(1);
+        sec--;
+    }
+    system("cls");
+}
+double somar(double n1, double n2){
+    return n1+n2;
+}
+double subtrair(double n1,double n2){
+    return n1-n2;
+}
+double multiplicar(double n1,double n2){
+    return n1*n2;
+}
+double dividir(double n1,double n2){
+    double resto,aux;
+    resto=aux=0.0;
+    aux = n1/n2;
+    aux = floor(aux);
+    resto = n1 - aux * n2;
+    printf("O resto desta divisão é: %.2lf\n",resto);
+    return n1/n2;
+}
+double elevar(double base,double expo){
+    double resu=1;
+    for(int i = 0; i<expo;i++ ){
+        resu = resu*base;
+    }
+    return resu;
+}
+double fatorar(double i){
+    if(i < 1) return 1;
+    else{
+        if(i > 0 && i < 2) printf("%.2lf=",i);
+        else printf("%.2lf!",i);
+        return i * fatorar(i-1);
+    }
+}

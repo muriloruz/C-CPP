@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+int main(){
+    setlocale(LC_ALL,"Portuguese");
+    long double max, menor, num;
+    int i;
+    max = -1000000, menor = 100000000;
+    while(i<10){
+        i++;
+        printf("Digita\n--->  ");
+        scanf("%f",&num);
+        if(num>max) max=num;
+        if(menor>num) menor = num;
+    }
+    if(max!=menor){
+        printf("Maior é %.2db\n", max);
+        printf("Menor é %.2db", menor);
+    }else if(max==menor){
+         printf("Maior número(%.2db) é igual ao menor número(%.2f)\n", max , menor);
+    }else{
+        printf("ERRO");
+    }
+}

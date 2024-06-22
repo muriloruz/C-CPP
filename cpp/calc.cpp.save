@@ -1,0 +1,61 @@
+/*
+    Nome: Calc.cpp
+    Author: Murilo
+    Date: 23/10/2023 20:27
+    Description: Uma calaculadora
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <string.h>
+#include <locale.h>
+
+double somar(double,double);
+double subtrair(double,double);
+double multiplicar(double,double);
+double dividir(double,double);
+double elevar(double,double);
+double fatorar(double);
+void contagem(int);
+void escrever(char[]);
+void voltar();
+
+main(){
+    setlocale(LC_ALL,"Portuguese");
+    int op;
+    op=0;
+    escrever("mn");
+    puts("");
+    puts("\t\t\t\t\t[1] -> Aperte para \"Soma\".");
+    puts("\t\t\t\t\t[2] -> Aperte para \"Subtração\".");
+    puts("\t\t\t\t\t[3] -> Aperte para \"Multiplicação\".");
+    puts("\t\t\t\t\t[4] -> Aperte para \"Divisão\".");
+    puts("\t\t\t\t\t[5] -> Aperte para \"Exponenciação\".");
+    puts("\t\t\t\t\t[6] -> Aperte para \"Raiz quadrada\".");
+    puts("\t\t\t\t\t[7] -> Aperte para \"Fatorial de um número\".");
+    scanf("%d",&op);
+    switch(op){
+    case 1:
+        voltar();
+    }
+}
+void escrever(char operacao[]){
+    if(operacao == "mn"){
+        puts("\t|=====================================CALCULADORA=====================================|");
+        puts("\t\t|=================================Menu=================================|");
+    }
+}
+void voltar(){
+    int volt=0;
+    puts("Você deseja voltar ao menu?");
+    scanf("%d",&volt);
+    if(volt==1){
+        system("cls");
+        main();
+    }else if(volt==2){
+        system("cls");
+    }else{
+        puts("Opção inválida");
+        puts("Você irá retornar ao menu em %d se")
+    }
+}

@@ -1,0 +1,21 @@
+/*Descricao: */
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+lonint calcularP(long int,long int);
+int main()
+{
+    setlocale(LC_ALL,"Portuguese");
+    int b=0,e=0;
+    puts("Qual o valor da base?");
+    scanf("%d",&b);
+    puts("Entre com o valor do expoente:");
+    scanf("%d",&e);
+    printf("O valor da potenciação é: %d",calcularP(b,e));
+}
+long int calcularP(long int base,long int exp){
+    if(exp==0) return 1;
+    else{
+      return base * calcularP(base,exp-1);
+    }
+}

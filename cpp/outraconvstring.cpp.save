@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+int main(){
+    char letras[]={'a','b','c','A','p','a'};
+    int cont=0;
+    int tamanho = sizeof(letras)/sizeof(letras[0]);
+    for(int i=0;i<tamanho; i++){
+        letras[static_cast <char>(cha)i];
+        if(i=='A' or i=='a') cont++;
+    }
+    cout<<cont;
+}

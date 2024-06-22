@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+int main(){
+    int variable1 = 1, variable2 = 2, auxiliary;
+
+    auxiliary = variable1;
+variable1 = variable2;
+variable2 = auxiliary;
+
+}
